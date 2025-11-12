@@ -1,0 +1,5 @@
+Sau đó, thử thêm phương thức addDVD(DigitalVideoDisc …discs).  
+Câu hỏi: Chuyện gì xảy ra khi thêm phương thức này, tại sao? Bạn lựa chọn phương án nào để giải quyết? 
+
+Nếu thêm phương thức này, sẽ xảy ra lỗi Duplicate method vì signature của phương thức đó trùng với signature của phương thức addDVD(DigitalVideoDisc[] disc) vì kiểu Varargs(...) về bản chất là một mảng, khi compiler sẽ chuyển thành DigitalVideoDisc[] nên DigitalVideoDisc[] và DigitalVideoDisc... được coi là cùng một kiểu tham số ở mức signature method
+Phương án giải quyết: dùng phương thức addDVD(DigitalVideoDisc …discs) thay vì dùng phương thức addDVD(DigitalVideoDisc[] discs), vì varargs có thể truyền vào 1 DVD hoặc cả mảng DVD
