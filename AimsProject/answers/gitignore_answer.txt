@@ -1,0 +1,20 @@
+1. Tại sao những đường dẫn trên nên được thêm vào .gitignore (nếu không thêm 
+thì sao)?
+File .gitignore được sử dụng để chỉ định các tệp hoặc thư mục mà Git không nên theo dõi, mục đích là giảm thiểu nhiễu thông tin trong kho mã nguồn. 
+.settings : thư mục cấu hình môi trường Eclipse, đây là cấu hình môi trường cục bộ. Việc theo dõi chúng có thể dẫn đến xung đột môi trường vì mỗi người có cấu hình IDE khác nhau.
+bin: thư mục chứa các tệp .class được sinh ra sau quá trình biên dịch. NẾu lưu các file này thì làm tăng dung lượng repo, gây khó khăn cho người khác
+.classpath: mô tả đường dẫn thư viện mà Eclipse sử dụng để biên dịch, phụ thuộc vào môi trường IDE. Vì thế nếu dùng IDE khác hoặc môi trường khác có thể gặp lỗi khi mở project
+.project: mô tả thông tin project của Eclipse, không liên quan đến quá trình biên dịch hay chạy chương trình.
+-Nếu không thêm các file trên thì:
+  + tăng khả năng xung đột phiên bản
+  + làm giảm tính di động
+  + làm rối, phức tạp lịch sử Git
+  + tăng dung lượng repo
+- Nếu dùng IntelliJ IDEA, cần thêm các đường dẫn: .idea, *.iml, out, *.log
+- Nếu dùng VS Code, cần thêm các đường dẫn: .vscode, target
+2. Trong trường hợp bạn đã lỡ commit các file tạm lên Git, nhưng sau đó bạn đã thêm chúng vào .gitignore và muốn Git ngừng theo dõi chúng mà không xóa khỏi máy, bạn sẽ cần thực hiện những thao tác nào?
+ Cần thực hiện như sau:
+ - Thêm các file, đường dẫn vào .gitignore
+ - Xóa các file đã commit khỏi Git tracking // git rm -r --cached // -> ngnwugn theo dõi các file đã được commit nhưng vẫn giữ chúng trên máy
+ - Commit các thay đổi
+
