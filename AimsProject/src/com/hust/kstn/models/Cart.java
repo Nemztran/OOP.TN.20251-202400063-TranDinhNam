@@ -1,5 +1,5 @@
-package com.hust.kstn;
-
+package com.hust.kstn.models;
+import com.hust.kstn.models.DigitalVideoDisc;
 import javax.accessibility.AccessibleEditableText;
 
 public class Cart {
@@ -14,6 +14,15 @@ public class Cart {
             itemsInCart[qtyOrdered] = disc;
             qtyOrdered ++;
             System.out.println("The dish has been added successfully !");
+        }
+    }
+    public void addDVD(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+        addDVD(disc1);
+        addDVD(disc2);
+    }
+    public void addDVD(DigitalVideoDisc ...discs) {
+        for (DigitalVideoDisc disc : discs) {
+            addDVD(disc);
         }
     }
     public void removeDVD(DigitalVideoDisc disc) {
@@ -52,7 +61,7 @@ public class Cart {
         System.out.println("=== All items in cart ===");
         for (int i = 0; i < qtyOrdered; i++) {
             System.out.println("[Title]: " + itemsInCart[i].getTitle() + ", " +
-                               "[Cost]: " + itemsInCart[i].getCost());
+                    "[Cost]: " + itemsInCart[i].getCost());
         }
     }
 }

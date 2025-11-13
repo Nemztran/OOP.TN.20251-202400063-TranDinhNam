@@ -1,4 +1,4 @@
-package com.hust.kstn;
+package com.hust.kstn.models;
 import java.util.Objects;
 public class DigitalVideoDisc {
     private String title;
