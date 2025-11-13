@@ -34,6 +34,7 @@ public class DigitalVideoDisc {
         this.title = title;
         this.category = category;
         this.director = director;
+        this.length = length;
         this.cost = cost;
         this.id = generateId();
     }
@@ -65,5 +66,14 @@ public class DigitalVideoDisc {
                 Objects.equals(this.director, disc.director) &&
                 Objects.equals(this.length, disc.length) &&
                 Objects.equals(this.cost, disc.cost);
+    }
+    @Override
+    public String toString() {
+        return "DVD" + "[" + this.id + "]"
+                + "[" + this.title + "]"
+                + "[" + this.cost + "]"
+                + "[" + this.director + "]"
+                + "[" + this.length + "]"
+                + "[" + this.category + "]";
     }
 }
