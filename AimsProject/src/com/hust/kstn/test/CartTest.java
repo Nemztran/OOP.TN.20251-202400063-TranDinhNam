@@ -27,8 +27,6 @@ public class CartTest {
 
         DigitalVideoDisc extraDvd = new DigitalVideoDisc("Movie 21", "Category plus", "Director plus", 120, 25.99);
         cart.addDVD(extraDvd);
-
-
         System.out.println("\n\nTotal cost: " + cart.calculateTotalCost() + "$");
     }
 }
