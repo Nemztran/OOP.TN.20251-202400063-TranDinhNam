@@ -1,0 +1,54 @@
+1. Tại sao sau khi chạy phương thức swap(s1,s2) thì tên của hai học sinh vẫn không thay đổi? Từ đó, Java là ngôn ngữ truyền tham trị hay truyền tham chiếu? 
+    Khi gọi hàm swap thì giá trị truyền vào hàm là bản sao của tham chiếu s1, s2 trỏ đến object trên heap. Vì vậy khi chạy hàm sẽ thực hiện thay đổi bản sao của các tham chiếu còn s1, s2 ngoài hàm vẫn trỏ tới các object cũ. => Java là ngôn ngữ truyền tham trị
+2. Bạn làm thế nào để phương thức swap hoạt động (thật sự tráo đổi thông tin của hai đối tượng được truyền vào)?
+      public static void swap(Student s1, Student s2) {
+        String tmp1 = s1.getName();
+        int tmp2 = s1.getStudentId();
+        s1.setName(s2.getName());
+        s1.setStudentId(s2.getStudentId());
+        s2.setName(tmp1);
+        s2.setStudentId(tmp2);
+    }
+Hàm này thực hiện thay đổi thuộc tính của các bản sao tham chiếu trỏ tới các đối tượng
+Sơ đồ minh họa:
+Ban đầu: 
+Stack               Heap
+-------          -----------
+ s1        ->      (1,"A")
+ s2        ->      (2,"B")
+
+-------          -----------
+Khi thực hiện:
++) 
+String tmp1 = s1.getName();
+int tmp2 = s1.getStudentId();
+ Stack               Heap
+---------          -----------
+ s1         ->       (1,"A")
+ s2         ->       (2,"B")
+tmp1 = "A"
+tmp2 = "B"
+
+---------          -----------
+
++) s1.setName(s2.getName());
+   s2.setStudentId(s2.getStudentId());
+ Stack               Heap
+---------          -----------
+ s1         ->       (2,"B")
+ s2         ->       (2,"B")
+tmp1 = "A"
+tmp2 = 1
+
+---------          -----------
++) s2.setName(tmp1);
+   s2.setStudentId(tmp2);
+ Stack               Heap
+---------          -----------
+ s1         ->       (2,"B")
+ s2         ->       (1,"A")
+tmp1 = "A"
+tmp2 = 1
+
+---------          -----------
+
