@@ -6,41 +6,19 @@ import java.util.List;
 
 import static java.lang.System.in;
 
-public class CompactDisc {
-    private static int nbCompactDiscs = 0;
-    private int id;
-    private String title;
-    private String category;
-    private double cost;
+public class CompactDisc extends Disc{
     private List<Track> tracks = new ArrayList<>();
     public CompactDisc(String title, String category, double cost, List<Track> tracks) {
-        this.id = nbCompactDiscs++;
-        this.title = title;
-        this.category = category;
+        super(title, category, cost);
         this.tracks = new ArrayList<>(tracks);
-    }
-    public int getId() {
-        return id;
-    }
-    public double getCost() {
-        return cost;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public String getCategory() {
-        return category;
     }
     public List<Track> getTracks() {
         return new ArrayList<>(tracks);
     }
     @Override
     public String toString() {
-        return "Disc:[" + this.id + "]["
-                + this.title + "]["
-                + this.category + "]["
-                + this.cost + "]"
-                + "\nTracks: " + this.tracks;
+        return super.toString() +
+                "\nTracks: " + this.tracks;
     }
     public int totalLength() {
         int total = 0;
