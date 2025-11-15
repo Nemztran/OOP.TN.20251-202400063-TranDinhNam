@@ -9,7 +9,7 @@ public class CartTest {
 
         System.out.println("Testing Cart with maximum capacity (20 DVDs)");
         System.out.println("==============================================");
-        cart.removeDVD(new DigitalVideoDisc("Namtran"));
+        cart.removeDVD(new DigitalVideoDisc("Movie 0", "Category 0", "Director 0", 135, 36.3));
         // Create and add 20 DVDs
         for (int i = 1; i <= 20; i++) {
             DigitalVideoDisc dvd = new DigitalVideoDisc(

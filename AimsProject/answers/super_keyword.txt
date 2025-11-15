@@ -1,0 +1,3 @@
+Trong Java, super là từ khóa để truy xuất đến các thành phần ở lớp cha của đối tượng hiện tại. Ý nghĩa:
++) super(title, category, cost); -> gọi constructor của lớp cha (Media) -> khởi tạo các thuộc tính title, category, cost mà Book kế thừa
++) super.toString(): gọi method của lớp cha (Media), lớp con (Book) sử dụng lại method đó
